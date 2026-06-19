@@ -1,4 +1,3 @@
-
 :root {    
     --primary: #4a90e2;
     --lost: #e74c3c;
@@ -26,6 +25,7 @@ body {
     padding: 20px;
 }
 
+/* Barra de Navegação */
 .navbar {
     background: white;
     padding: 15px 30px;
@@ -73,6 +73,7 @@ body {
     opacity: 0.9;
 }
 
+/* Hero Section */
 .hero {
     background: linear-gradient(135deg, #4a90e2 0%, #50e3c2 100%);
     color: white;
@@ -92,6 +93,7 @@ body {
     opacity: 0.9;
 }
 
+/* Formulário */
 .card-form {
     background: white;
     padding: 30px;
@@ -119,7 +121,9 @@ body {
     font-weight: 600;
 }
 
-.form-group input, .form-group select {
+.form-group input[type="text"], 
+.form-group input[type="tel"], 
+.form-group select {
     width: 100%;
     padding: 11px;
     border: 1px solid #ccc;
@@ -133,6 +137,57 @@ body {
     border-color: var(--primary);
 }
 
+/* Layout dos Botões Criados para Foto */
+.botoes-foto-container {
+    display: flex;
+    gap: 15px;
+}
+
+.botoes-foto-container .btn-camera-container {
+    flex: 1;
+}
+
+.btn-camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 20px 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-camera-container:hover {
+    background-color: #f1f5f9;
+    border-color: var(--primary);
+}
+
+/* Estado visual após selecionar arquivo válido */
+.btn-camera-container.foto-selecionada {
+    border-color: var(--found);
+    background-color: #f0fff4;
+}
+
+.icon-camera {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.text-camera {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.btn-camera-container input[type="file"] {
+    display: none;
+}
+
+/* Botão Enviar */
 .btn-submit {
     background: var(--dark);
     color: white;
@@ -151,39 +206,7 @@ body {
     background: #34495e;
 }
 
-.search-filters {
-    text-align: center;
-    margin: 40px 0 20px;
-}
-
-.filter-buttons {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 10px;
-}
-
-.filter-btn {
-    padding: 10px 22px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    background: #ddd;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.filter-btn:hover {
-    background: #ccc;
-}
-
-.filter-btn.active {
-    background: var(--primary);
-    color: white;
-}
-
+/* Grid de Cards */
 .mural-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -230,25 +253,6 @@ body {
 .pet-info h3 { margin-bottom: 8px; font-size: 1.3rem;}
 .pet-info p { font-size: 0.9rem; color: #555; margin-bottom: 6px; }
 
-.btn-map-link {
-    display: block;
-    text-align: center;
-    background: #eef2f7;
-    color: #2c3e50;
-    text-decoration: none;
-    padding: 9px;
-    border-radius: 6px;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: 1px solid #d2dbe5;
-    transition: background 0.2s;
-}
-
-.btn-map-link:hover {
-    background: #e2e8f0;
-}
-
 .btn-contact {
     display: block;
     text-align: center;
@@ -257,7 +261,7 @@ body {
     text-decoration: none;
     padding: 10px;
     border-radius: 6px;
-    margin-top: 8px;
+    margin-top: 15px;
     font-weight: bold;
     font-size: 0.95rem;
     transition: opacity 0.2s;
@@ -267,16 +271,13 @@ body {
     opacity: 0.9;
 }
 
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .card-form {
-        padding: 20px;
-    }
+    .container { padding: 15px; }
+    .hero h1 { font-size: 2rem; }
+    .card-form { padding: 20px; }
 }
 
 @media (max-width: 576px) {
@@ -306,27 +307,13 @@ body {
         font-size: 0.9rem;
     }
 
-    .hero {
-        padding: 35px 15px;
+    .botoes-foto-container {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .hero h1 {
-        font-size: 1.6rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-    }
-
-    .form-row {
-        flex-direction: column; 
-        gap: 0;
-    }
-
-    .filter-btn {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-        width: 45%; 
-    }
+    .hero { padding: 35px 15px; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.95rem; }
+    .form-row { flex-direction: column; gap: 0; }
 }
-
